@@ -1,10 +1,6 @@
 <html>
   <head>
     <title>PlatziMediaPlayer.js</title>
-    <!--link
-      rel="stylesheet"
-      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-    /-->
     <link rel="stylesheet" href="./assets/index.css" />
   </head>
 
@@ -21,6 +17,28 @@
 
       <button>Play/Pause</button>
     </main>
+
+    <script>
+      const video = document.querySelector("video");
+      const button = document.querySelector("button");
+
+      function MediaPlayer(video) {
+        this.media = video;
+      }
+
+      MediaPlayer.prototype.play = function() {
+        if(this.media.paused) {
+          this.media.play();
+        }
+        else {
+          this.media.pause();
+        }
+      }
+
+      const player = new MediaPlayer(video);
+
+      button.onclick = () => player.play();
+    </script>
 
   </body>
 </html>
